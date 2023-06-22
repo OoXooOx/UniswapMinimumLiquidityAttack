@@ -1,6 +1,7 @@
 First of all I delete calculation and mint of Minimum Liquidity LP tokens in pair SC  - 385 and 387 line/
 then I fork mainnet through hh by command      
 npx hardhat node --fork https://eth-mainnet.g.alchemy.com/v2/ENTER_HERE_YOUR_API_KEY --fork-block-number 17370579
+
 next we need deploy all SC 
 npx hardhat run scripts/deploy.js --network localhost
 next we start test file 
