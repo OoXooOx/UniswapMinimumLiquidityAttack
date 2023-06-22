@@ -4,10 +4,12 @@ npx hardhat node --fork https://eth-mainnet.g.alchemy.com/v2/ENTER_HERE_YOUR_API
 
 next we need deploy all SC 
 npx hardhat run scripts/deploy.js --network localhost
+
 next we start test file 
 npx hardhat test --network localhost
 
 You must be aware, that init_code_hash in Router SC (277 line) must be equal to  info from test  ✔ init code hash (it's 9 test)
+
 Ofcourse you need install all dependencies by command 
 npm i
 
