@@ -181,6 +181,19 @@ describe("forktest", function () {
             { value: ethers.utils.parseEther("5") })).to.be.revertedWith("UniswapV2Router: INSUFFICIENT_B_AMOUNT")                                        // ETH amount / amountTokenBDesired
     })
 
+    it("add liquidity from second in same proportion ", async function () {
+
+        const tx = await CONTRACT_ROUTER.connect(second).callStatic.addLiquidityETH(
+            TSTtoken,                                            //Token Address
+            ethers.utils.parseEther("2000000"),                  // amountTokenDesired /amountTokenADesired
+            ethers.utils.parseEther("2000000"),                  // amountTokenMin / amountTokenAMin
+            1,                                                   // amountETHMin / amountTokenBMin
+            owner.address,                                       // address receiver of LP tokens
+            1691089536,                                          // deadline
+            {value:1})                                          // ETH amount / amountTokenBDesired
+        expect(tx).to.not.throw;
+    })
+
     it("owner can remove successfully liquidity  ", async function () {
         const addressPair = await CONTRACT_FACTORY.getPair(WETH, TSTtoken)
         const PAIR_CONTRACT = await ethers.getContractFactory("UniswapPair");
